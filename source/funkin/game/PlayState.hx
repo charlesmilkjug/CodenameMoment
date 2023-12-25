@@ -75,7 +75,7 @@ class PlayState extends MusicBeatState
 	 */
 	public static var opponentMode:Bool = false;
 	/**
-	//  * Whenever the song has been started with co-op mode on.
+	 * Whenever the song has been started with co-op mode on.
 	 */
 	public static var coopMode:Bool = false;
 
@@ -89,6 +89,10 @@ class PlayState extends MusicBeatState
 	 */
 	public var strumLines:FlxTypedGroup<StrumLine> = new FlxTypedGroup<StrumLine>();
 
+	/**
+	 * Death counter on current week (or song if from freeplay).
+	 */
+	public static var deathCounter:Int = 0;
 	/**
 	 * Game Over Song. (assets/music/gameOver.ogg)
 	 */
@@ -443,6 +447,7 @@ class PlayState extends MusicBeatState
 	public var hitWindow:Float = Options.hitWindow; // is calculated in create(), is safeFrames in milliseconds
 
 	@:noCompletion @:dox(hide) private var _startCountdownCalled:Bool = false;
+	@:noCompletion @:dox(hide) private var _endSongCalled:Bool = false;
 
 	@:dox(hide)
 	var __vocalOffsetViolation:Float = 0;
@@ -744,6 +749,10 @@ class PlayState extends MusicBeatState
 
 		updateDiscordPresence();
 
+		// Make icons appear in the correct spot during cutscenes
+		healthBar.update(0);
+		updateIconPositions();
+
 		__updateNote_event = EventManager.get(NoteUpdateEvent);
 
 		scripts.call("postCreate");
@@ -850,6 +859,7 @@ class PlayState extends MusicBeatState
 				sprite.scale.set(event.scale, event.scale);
 				sprite.updateHitbox();
 				sprite.screenCenter();
+				sprite.antialiasing = event.antialiasing;
 				add(sprite);
 				tween = FlxTween.tween(sprite, {y: sprite.y + 100, alpha: 0}, Conductor.crochet / 1000, {
 					ease: FlxEase.cubeInOut,
@@ -1074,6 +1084,18 @@ class PlayState extends MusicBeatState
 		updateDiscordPresence();
 	}
 
+	function updateIconPositions() {
+		var iconOffset:Int = 26;
+
+		iconP1.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 1, 0)) - iconOffset);
+		iconP2.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 1, 0))) - (iconP2.width - iconOffset);
+
+		health = FlxMath.bound(health, 0, maxHealth);
+
+		iconP1.health = healthBar.percent / 100;
+		iconP2.health = 1 - (healthBar.percent / 100);
+	}
+
 	@:dox(hide)
 	override public function update(elapsed:Float)
 	{
@@ -1119,15 +1141,7 @@ class PlayState extends MusicBeatState
 		iconP1.updateHitbox();
 		iconP2.updateHitbox();
 
-		var iconOffset:Int = 26;
-
-		iconP1.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 1, 0)) - iconOffset);
-		iconP2.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 1, 0))) - (iconP2.width - iconOffset);
-
-		health = FlxMath.bound(health, 0, maxHealth);
-
-		iconP1.health = healthBar.percent / 100;
-		iconP2.health = 1 - (healthBar.percent / 100);
+		updateIconPositions();
 
 		if (startingSong)
 		{
@@ -1260,6 +1274,7 @@ class PlayState extends MusicBeatState
 		if (FlxG.sound.music != null)
 			FlxG.sound.music.stop();
 
+		deathCounter++;
 		openSubState(new GameOverSubstate(character == null ? 0 : character.x, character == null ? 0 : character.y, deathCharID, character != null ? character.isPlayer : true, gameOverSong, lossSFX, retrySFX));
 	}
 
@@ -1268,12 +1283,17 @@ class PlayState extends MusicBeatState
 	 */
 	public function endSong():Void
 	{
-		scripts.call("onSongEnd");
-		canPause = false;
-		inst.volume = 0;
-		vocals.volume = 0;
-		inst.pause();
-		vocals.pause();
+		if (!_endSongCalled) {
+			_endSongCalled = true;
+
+			canPause = false;
+			inst.volume = 0;
+			vocals.volume = 0;
+			inst.pause();
+			vocals.pause();
+
+			if (scripts.event("onSongEnd", new CancellableEvent()).cancelled) return;
+		}
 
 		if (validScore)
 		{
@@ -1288,6 +1308,7 @@ class PlayState extends MusicBeatState
 			#end
 		}
 
+		deathCounter = 0;
 		startCutscene("end-", endCutscene, nextSong);
 	}
 
