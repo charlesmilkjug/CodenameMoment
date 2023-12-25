@@ -182,6 +182,7 @@
 	<haxelib name="hscript-improved" />
 	<haxelib name="discord-rpc" if="DISCORD_RPC"/>
 	<haxelib name="markdown" />
+	<haxelib name="flxgif" />
 
 	<haxedef name="no-deprecation-warnings"/>
 
