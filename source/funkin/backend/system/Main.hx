@@ -1,5 +1,11 @@
 package funkin.backend.system;
 
+#if android
+import android.content.Context;
+#elseif ios
+import lime.system.System;
+#end
+
 import funkin.editors.SaveWarning;
 import funkin.backend.assets.AssetsLibraryList;
 import funkin.backend.system.framerate.SystemInfo;
@@ -26,6 +32,13 @@ import flixel.math.FlxRect;
 import lime.app.Application;
 import funkin.backend.system.modules.*;
 
+#if linux
+@:cppInclude('./external/gamemode_client.h')
+@:cppFileCode('
+	#define GAMEMODE_AUTO
+')
+#end
+
 #if ALLOW_MULTITHREADING
 import sys.thread.Thread;
 #end
@@ -34,8 +47,7 @@ import sys.io.File;
 #end
 import funkin.backend.assets.ModsFolder;
 
-class Main extends Sprite
-{
+class Main extends Sprite {
 	public static var instance:Main;
 
 	public static var modToLoad:String = null;
@@ -49,7 +61,7 @@ class Main extends Sprite
 
 	var gameWidth:Int = 1280; // Width of the game in pixels (might be less / more in actual pixels).
 	var gameHeight:Int = 720; // Height of the game in pixels (might be less / more in actual pixels).
-	var skipSplash:Bool = true; // Whether to skip the flixel splash screen that appears in release mode.
+	var skipSplash:Bool = false; // Whether to skip the flixel splash screen that appears in release mode.
 	var startFullscreen:Bool = false; // Whether to start the game in fullscreen on desktop targets
 
 	public static var game:FunkinGame;
@@ -65,6 +77,12 @@ class Main extends Sprite
 	public function new()
 	{
 		super();
+
+		#if android
+		Sys.setCwd(Context.getExternalFilesDir() + '/');
+		#elseif ios
+		Sys.setCwd(System.applicationStorageDirectory);
+		#end
 
 		instance = this;
 

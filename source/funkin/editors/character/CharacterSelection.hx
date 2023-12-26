@@ -27,12 +27,12 @@ class CharacterSelection extends EditorTreeMenu
 		];
 
 		list.insert(0, new NewOption("New Character", "New Character", function() {
-			openSubState(new UIWarningSubstate("New Character: Feature Not Implemented!", "This feature isnt implemented yet. Please wait for more cne updates to have this functional.\n\n\n- Codename Devs", [
+			openSubState(new UIWarningSubstate("New Character", "Why don't you just clone another character's XML (i.e. dad.xml) and base your character off of it?", [
 				{label: "Ok", color: 0xFFFF0000, onClick: function(t) {}}
 			]));
 		}));
 
-		main = new OptionsScreen("Character Editor", "Select a character to edit", list);
+		main = new OptionsScreen("Character Editor", "Select a character to edit.", list);
 	}
 
 	override function createPost() {

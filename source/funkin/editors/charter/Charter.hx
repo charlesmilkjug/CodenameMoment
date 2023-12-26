@@ -237,7 +237,7 @@ class Charter extends UIState {
 						onSelect: _note_selectmeasure
 					},
 					null,
-					{
+					{ // ok good luck editing the json for the notetypes instead lmfao!
 						label: "(0) Default Note",
 						keybind: [ZERO]
 					},
@@ -314,9 +314,9 @@ class Charter extends UIState {
 						onSelect: _playback_metronome,
 						icon: Options.charterMetronomeEnabled ? 1 : 0
 					},
-					{
-						label: "Visual metronome"
-					},
+					/*{
+						label: "Visual metronome" //it doesnt work btw so
+					},*/
 					null,
 					{
 						label: "Mute instrumental",

@@ -17,6 +17,7 @@
 	<!-- Documentation and other features -->
 	<lib name="away3d" />
 	<lib name="flxgif" />
+	<lib name="extension-androidtools" />
 	<lib name="format" />
 	<lib name="markdown" />
 </libraries>

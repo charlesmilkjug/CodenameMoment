@@ -1,4 +1,6 @@
-#if !macro
+package;
+
+#if !marco
 import funkin.backend.assets.Paths;
 import funkin.backend.MusicBeatState;
 import funkin.backend.MusicBeatSubstate;
@@ -8,6 +10,7 @@ import funkin.backend.utils.*;
 import funkin.backend.system.Logs;
 import funkin.options.Options;
 import funkin.game.PlayState;
+import funkin.backend.MusicBeatSubstate;
 import funkin.backend.scripting.EventManager;
 
 import openfl.utils.Assets;
@@ -24,6 +27,14 @@ import flixel.util.FlxDestroyUtil;
 import funkin.menus.ui.Alphabet;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
+
+#if sys
+import sys.io.File;
+import sys.FileSystem;
+import sys.io.Process;
+#end
+
+import funkin.backend.system.CoolSystemStuff;
 
 using StringTools;
 using funkin.backend.utils.CoolUtil;

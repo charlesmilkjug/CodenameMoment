@@ -13,9 +13,6 @@
 	-->
 	<app save-path="YoshiCrafter29/CodenameEngine" save-name="save-default" mod-saves="true" />
 
-	<!--Switch Export with Unique ApplicationID and Icon-->
-	<set name="APP_ID" value="0x0100f6c013bbc000" />
-
 	<!-- DO NOT REMOVE!! ALLOWS ME TO DO REGIONS LIKE IN C# AND KEEP CODE ORGANIZED. REMOVING IT WOULD BREAK THE ENGINE -->
 	<haxedef name="REGION" />
 
@@ -25,6 +22,8 @@
 
 	<!--Minimum without FLX_NO_GAMEPAD: 11.8, without FLX_NO_NATIVE_CURSOR: 11.2-->
 	<set name="SWF_VERSION" value="11.8" />
+
+	<error value="Nintendo Switch is not supported. Seriously, why would you do that?" if="switch" />
 
 	<!-- ____________________________ Window Settings ___________________________ -->
 
@@ -40,9 +39,6 @@
 
 	<!--Mobile-specific-->
 	<window if="mobile" orientation="landscape" fullscreen="true" width="0" height="0" resizable="false"/>
-
-	<!--Switch-specific-->
-	<window if="switch" orientation="landscape" fullscreen="true" width="0" height="0" resizable="true" />
 
 	<!-- _____________________________ Path Settings ____________________________ -->
 
@@ -71,6 +67,8 @@
 	<!-- ______________________________ Haxedefines _____________________________ -->
 
 	<haxeflag name="--macro" value="funkin.backend.system.macros.NewHaxeWarning.warn()" />
+	<haxeflag name="--macro" value="allowPackage('flash')" />
+	<haxeflag name="--macro" value="include('my.pack')" />
 
 	<haxedef name="FLX_NO_FOCUS_LOST_SCREEN" />
 
@@ -125,7 +123,7 @@
 	<define name="CUSTOM_CLASSES" />
 
 	<!-- Comment this out to disable multithreading !-->
-	<haxedef name="ALLOW_MULTITHREADING" unless="web || flash" />
+	<haxedef name="ALLOW_MULTITHREADING" unless="web || mobile || flash" />
 
 	<!-- Comment this out to disable titlescreen.xml !-->
 	<haxedef name="TITLESCREEN_XML" />
@@ -143,7 +141,7 @@
 	<haxedef name="USE_ADAPTED_ASSETS" unless="web" />
 
 	<!-- Comment this out to disable support for custom ndlls. !-->
-	<haxedef name="NDLLS_SUPPORTED" unless="web" />
+	<haxedef name="NDLLS_SUPPORTED" unless="mobile || web" />
 
 	<!-- Comment this out to disable support for custom extended classes (data/classes). !-->
 	<define name="SOFTCODED_CLASSES" />
@@ -182,11 +180,16 @@
 	<haxelib name="hscript-improved" />
 	<haxelib name="discord-rpc" if="DISCORD_RPC"/>
 	<haxelib name="markdown" />
+	<haxelib name="extension-androidtools" if="android" />
 	<haxelib name="flxgif" />
 
 	<haxedef name="no-deprecation-warnings"/>
 
 	<!-- _________________________________ Additional stuff _______________________________ -->
+
+	<haxedef name="HXCPP_GC_SUMMARY" if="cpp"/>
+	<haxedef name="HXCPP_GC_MOVING" if="cpp" />
+    <haxedef name="HXCPP_GC_GENERATIONAL" if="cpp" />
 
 	<section if="COMPILE_ALL_CLASSES">
 		<haxeflag name="-dce" value="no" />
