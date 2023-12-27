@@ -365,7 +365,10 @@ class PlayState extends MusicBeatState
 	 * Whenever the game is currently in a cutscene or not.
 	 */
 	public var inCutscene:Bool = false;
-
+    /**
+	 * Whenever the game has already played the cutscene for the current song.
+	 */
+	public static var seenCutscene:Bool = false;
 	/**
 	 * Whenever the game should play the cutscenes. Defaults to whenever the game is currently in Story Mode or not.
 	 */
@@ -816,6 +819,7 @@ class PlayState extends MusicBeatState
 	{
 		if (!_startCountdownCalled) {
 			_startCountdownCalled = true;
+			if(inCutscene) seenCutscene = true;
 			inCutscene = false;
 
 			if (scripts.event("onStartCountdown", new CancellableEvent()).cancelled) return;
@@ -1213,6 +1217,11 @@ class PlayState extends MusicBeatState
 		scripts.call("postUpdate", [elapsed]);
 	}
 
+	public static function resetSongInfos() {
+		deathCounter = 0;
+		seenCutscene = false;
+	}
+
 	override function draw() {
 		var e = scripts.event("draw", EventManager.get(DrawEvent).recycle());
 		if (!e.cancelled)
@@ -1313,8 +1322,8 @@ class PlayState extends MusicBeatState
 			#end
 		}
 
-		deathCounter = 0;
 		startCutscene("end-", endCutscene, nextSong);
+		resetSongInfos();
 	}
 
 	private static inline function getSongChanges():Array<HighscoreChange> {
