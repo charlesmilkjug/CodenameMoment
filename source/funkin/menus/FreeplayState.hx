@@ -119,7 +119,7 @@ class FreeplayState extends MusicBeatState
 			}
 		}
 
-		DiscordUtil.changePresence("In the Menus", null);
+		DiscordUtil.changePresence("Freeplay Menu", null);
 
 		// LOAD CHARACTERS
 
@@ -225,7 +225,7 @@ class FreeplayState extends MusicBeatState
 			updateOptionsAlpha();
 		}
 
-		scoreText.text = "PERSONAL BEST:" + lerpScore;
+		scoreText.text = "BEST SCORE:" + lerpScore;
 		scoreBG.scale.set(Math.max(Math.max(diffText.width, scoreText.width), coopText.width) + 8, (coopText.visible ? coopText.y + coopText.height : 66));
 		scoreBG.updateHitbox();
 		scoreBG.x = FlxG.width - scoreBG.width;

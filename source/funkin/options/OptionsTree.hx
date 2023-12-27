@@ -14,7 +14,6 @@ class OptionsTree extends FlxTypedGroup<OptionsScreen> {
 			last.update(elapsed);
 	}
 
-
 	public override function draw() {
 		super.draw();
 		if (lastMenu != null) {
