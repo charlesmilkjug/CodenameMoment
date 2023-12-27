@@ -14,9 +14,13 @@ class GameplayOptions extends OptionsScreen {
 			"Ghost Tapping",
 			"If unchecked, trying to hit any strum that have no note that can be hit will cause a miss.",
 			"ghostTapping"));
+		add(new Checkbox(
+			"Green Screen Mode",
+			"For those green screen videos, I suppose...",
+			"greenScreenMode"));
 		add(new NumOption(
 			"Song Offset",
-			"Changes the offset at which the song should start",
+			"Changes the offset at which the song should start.",
 			-999, // minimum
 			999, // maximum
 			1, // change

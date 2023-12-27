@@ -29,6 +29,7 @@ class Options
 	public static var week6PixelPerfect:Bool = true;
 	public static var gameplayShaders:Bool = true;
 	public static var colorHealthBar:Bool = true;
+	public static var greenScreenMode:Bool = false;
 	public static var lowMemoryMode:Bool = false;
 	public static var betaUpdates:Bool = false;
 	public static var splashesEnabled:Bool = true;
