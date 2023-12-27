@@ -12,25 +12,30 @@
 
 	<intro length="16">
 		<text beat="1">
-			<line text="charlescatyt" />
+			<line text="phantomArcade" />
+			<line text="kawaisprite" />
+			<line text="evilsk8er" />
 		</text>
 
 		<text beat="3">
-			<line text="charlescatyt" />
+			<line text="phantomArcade" />
+			<line text="kawaisprite" />
+			<line text="evilsk8er" />
 			<line text="presents" />
 		</text>
 
 		<text beat="4" /> <!-- clears the screen !-->
 
 		<text beat="5">
-			<line text="Originally" />
+			<line text="In association" />
+			<line text="with" />
 		</text>
 
 		<text beat="7">
-			<line text="Originally" />
-			<line text="Wizard Night" />
-			<line text="Funkin" />
-			<!--<sprite path="menus/titlescreen/newgrounds_logo" scale="0.8"/>-->
+			<line text="In association" />
+			<line text="with" />
+			<line text="Newgrounds" />
+			<sprite path="menus/titlescreen/newgrounds_logo" scale="0.8"/>
 		</text>
 
 		<text beat="8" /> <!-- clears the screen !-->
@@ -47,18 +52,19 @@
 		<text beat="12"/>
 
 		<text beat="13">
-			<line text="Charles" />
+			<line text="Friday" />
 		</text>
 
 		<text beat="14">
-			<line text="Charles" />
-			<line text="Funky" />
+			<line text="Friday" />
+			<line text="Night" />
 		</text>
 
 		<text beat="15">
-			<line text="Charles" />
-			<line text="Funky" />
+			<line text="Friday" />
+
 			<line text="Night" />
+			<line text="Funkin'" />
 		</text>
 	</intro>
 </titlestate>
