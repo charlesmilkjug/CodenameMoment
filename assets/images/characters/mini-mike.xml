@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Mini_Mike_Assets.png">
+	<!-- Sprites by Sebastian, Spritesheet by CharlesCatYT -->
+	<SubTexture name="mini mike idle0000" x="719" y="788" width="240" height="385" frameX="-6" frameY="-15" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike idle0001" x="479" y="788" width="240" height="390" frameX="-6" frameY="-10" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike idle0002" x="239" y="788" width="240" height="393" frameX="-5" frameY="-7" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike down0000" x="1308" y="0" width="240" height="348" frameX="-6" frameY="-52" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike down0001" x="959" y="788" width="240" height="349" frameX="-6" frameY="-51" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike down0002" x="543" y="409" width="240" height="351" frameX="-6" frameY="-49" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike left0000" x="798" y="0" width="271" height="374" frameX="10" frameY="-26" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike left0001" x="272" y="409" width="271" height="376" frameX="10" frameY="-24" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike left0002" x="0" y="409" width="272" height="379" frameX="10" frameY="-21" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike up0000" x="798" y="374" width="239" height="410" frameX="-6" frameY="10" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike up0001" x="1069" y="0" width="239" height="405" frameX="-6" frameY="5" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike up0002" x="0" y="788" width="239" height="405" frameX="-6" frameY="5" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike right0000" x="533" y="0" width="265" height="403" frameX="6" frameY="3" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike right0001" x="266" y="0" width="267" height="406" frameX="8" frameY="6" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike right0002" x="0" y="0" width="266" height="409" frameX="7" frameY="9" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike idle0003" x="239" y="788" width="240" height="393" frameX="-5" frameY="-7" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike idle0004" x="239" y="788" width="240" height="393" frameX="-5" frameY="-7" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike idle0005" x="239" y="788" width="240" height="393" frameX="-5" frameY="-7" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike idle0006" x="239" y="788" width="240" height="393" frameX="-5" frameY="-7" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike idle0007" x="239" y="788" width="240" height="393" frameX="-5" frameY="-7" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike down0003" x="543" y="409" width="240" height="351" frameX="-6" frameY="-49" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike down0004" x="543" y="409" width="240" height="351" frameX="-6" frameY="-49" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike down0005" x="543" y="409" width="240" height="351" frameX="-6" frameY="-49" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike down0006" x="543" y="409" width="240" height="351" frameX="-6" frameY="-49" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike down0007" x="543" y="409" width="240" height="351" frameX="-6" frameY="-49" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike left0003" x="0" y="409" width="272" height="379" frameX="10" frameY="-21" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike left0004" x="0" y="409" width="272" height="379" frameX="10" frameY="-21" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike left0005" x="0" y="409" width="272" height="379" frameX="10" frameY="-21" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike left0006" x="0" y="409" width="272" height="379" frameX="10" frameY="-21" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike left0007" x="0" y="409" width="272" height="379" frameX="10" frameY="-21" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike right0003" x="0" y="0" width="266" height="409" frameX="7" frameY="9" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike right0004" x="0" y="0" width="266" height="409" frameX="7" frameY="9" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike right0005" x="0" y="0" width="266" height="409" frameX="7" frameY="9" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike right0006" x="0" y="0" width="266" height="409" frameX="7" frameY="9" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike right0007" x="0" y="0" width="266" height="409" frameX="7" frameY="9" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike up0003" x="0" y="788" width="239" height="405" frameX="-6" frameY="5" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike up0004" x="0" y="788" width="239" height="405" frameX="-6" frameY="5" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike up0005" x="0" y="788" width="239" height="405" frameX="-6" frameY="5" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike up0006" x="0" y="788" width="239" height="405" frameX="-6" frameY="5" frameWidth="252" frameHeight="390"/>
+	<SubTexture name="mini mike up0007" x="0" y="788" width="239" height="405" frameX="-6" frameY="5" frameWidth="252" frameHeight="390"/>
+</TextureAtlas>
