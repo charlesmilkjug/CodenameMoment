@@ -28,6 +28,8 @@ class Compiler {
                 "macos";
             case "Linux":
                 "linux";
+            case "Android":
+                "android";
             case def:
                 def.toLowerCase();
         }
