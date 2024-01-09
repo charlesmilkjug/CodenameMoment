@@ -1,6 +1,6 @@
+#if !marco
 package;
 
-#if !marco
 import funkin.backend.assets.Paths;
 import funkin.backend.MusicBeatState;
 import funkin.backend.MusicBeatSubstate;
